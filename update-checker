@@ -4,8 +4,6 @@
 # This script checks for NixOS updates and outputs JSON for Waybar integration
 
     # ===== Configuration =====
-    UPDATE_INTERVAL=3599  # Check interval in seconds (1 hour)
-    NIXOS_CONFIG_PATH="$HOME/.config/nixos"  # Path to NixOS configuration
     CACHE_DIR="$HOME/.cache"
     STATE_FILE="$CACHE_DIR/nix-update-state"
     LAST_RUN_FILE="$CACHE_DIR/nix-update-last-run"
@@ -18,11 +16,6 @@
     # 2. Resume from hibernation/suspension - when the system has just woken up
     # This avoids unnecessary resource usage and notifications during these transition periods.
     SKIP_AFTER_BOOT=true  # Set to false if you want to run the checker even after boot/resume
-    GRACE_PERIOD=60  # Grace period in seconds (60 seconds) after boot/resume
-
-    # If true, update the lock file in the config folder.
-    # If false, copy config to temp folder first, and then update the temp dir's lock file.
-    UPDATE_LOCK_FILE="false"
 
     # If you have a separate script to update your lock file (i.e. "nix flake update" script)
     # and you have UPDATE_LOCK_FILE set to "false",
